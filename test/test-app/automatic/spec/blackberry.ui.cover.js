@@ -1,5 +1,5 @@
 /*
- * Copyright 2012 Research In Motion Limited.
+ * Copyright 2014 BlackBerry Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,6 +27,12 @@ describe("blackberry.ui.cover", function () {
         } else if (screen.availHeight === 720 && screen.availWidth === 720) {
             expect(size.width).toBe(310);
             expect(size.height).toBe(211);
+        } else if ((screen.availHeight === 440) && (screen.availWidth === 486)) {
+            expect(size.width).toBe(486);
+            expect(size.height).toBe(440);
+        } else if ((screen.availHeight === 440) && (screen.availWidth === 195)) {
+            expect(size.width).toBe(195);
+            expect(size.height).toBe(440);
         } else {
             //unknown device size
         }
