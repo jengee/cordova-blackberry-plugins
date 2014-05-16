@@ -14,49 +14,72 @@
  * limitations under the License.
 */
 
-function showCustomToast() { 
-    var message = "This is my toast!", 
-        buttonText = "Click Me", 
-        toastId, 
-        onButtonSelected = function () { 
-            console.log('Button was clicked for toast: ' + toastId); 
-        }, 
-        onToastDismissed = function () { 
-            console.log('Toast disappeared: ' + toastId); 
-        }, 
-        options = { 
-            buttonText : buttonText, 
-            dismissCallback : onToastDismissed, 
-            buttonCallback : onButtonSelected 
-        }; 
-    
+function showCustomToast() {
+    var message = "This is my toast!",
+        buttonText = "Click Me",
+        toastId,
+        onButtonSelected = function () {
+            console.log('Button was clicked for toast: ' + toastId);
+        },
+        onToastDismissed = function () {
+            console.log('Toast disappeared: ' + toastId);
+        },
+        options = {
+            buttonText : buttonText,
+            dismissCallback : onToastDismissed,
+            buttonCallback : onButtonSelected
+        };
+
     toastId = blackberry.ui.toast.show(message, options);
     if (toastId != null && toastId !== undefined ) {
         document.getElementById("getToastID1").innerHTML="PASS"
     }
-} 
+}
 
-function showCustomToastWithTimeout() { 
-    var message = "This is my toast!", 
-        buttonText = "Click Me", 
-        toastId, 
-        onButtonSelected = function () { 
-            console.log('Button was clicked for toast: ' + toastId); 
-        }, 
-        onToastDismissed = function () { 
-            console.log('Toast disappeared: ' + toastId); 
-        }, 
-        options = { 
-            buttonText : buttonText, 
-            dissmissCallback : onToastDismissed, 
-            buttonCallback : onButtonSelected, 
-            timeout : 10000 
-        }; 
+function showCustomToastWithTimeout() {
+    var message = "This is my toast!",
+        buttonText = "Click Me",
+        toastId,
+        onButtonSelected = function () {
+            console.log('Button was clicked for toast: ' + toastId);
+        },
+        onToastDismissed = function () {
+            console.log('Toast disappeared: ' + toastId);
+        },
+        options = {
+            buttonText : buttonText,
+            dissmissCallback : onToastDismissed,
+            buttonCallback : onButtonSelected,
+            timeout : 10000
+        };
 
     toastId = blackberry.ui.toast.show(message, options);
     if (toastId != null && toastId !== undefined ) {
         document.getElementById("getToastID2").innerHTML="PASS"
     }
-    
+
 }
 
+function noButtonTextToast() {
+    var message = "This is my toast with no button text",
+        buttonText,
+        toastId,
+        onButtonSelected = function () {
+            alert('Button was clicked for toast: ' + toastId);
+            console.log('Button was clicked for toast: ' + toastId);
+        },
+        onToastDismissed = function () {
+            alert(i'Toast dismissed: ' + toastId);
+            console.log('Toast dismissed: ' + toastId);
+        },
+        options = {
+            buttonText : buttonText,
+            dismissCallback : onToastDismissed,
+            buttonCallback : onButtonSelected
+        };
+
+    toastId = blackberry.ui.toast.show(message,options);
+    if (toastId != null && toastId !== undefined ) {
+        document.getElementById("getToastID3").innerHTML="PASS"
+    }
+}
