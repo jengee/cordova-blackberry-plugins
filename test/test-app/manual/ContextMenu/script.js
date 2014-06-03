@@ -192,15 +192,27 @@ function removeMenuItemContextCustom() {
 
 //**************************Custom contexts - defineCustomContext()**********************************
 function addLinkContextToCustom() {
-    var options = {
-        includeContextItems: [blackberry.ui.contextmenu.CONTEXT_LINK],
-        includePlatformItems: false,
-        includeMenuServiceItems: false,
-        pinnedItemId: '2'
-    };
-    blackberry.ui.contextmenu.defineCustomContext("myContext", options);
     
-    alert("Added 'myContext' of type CONTEXT_TEXT to context menu. pinnedItem:2");
+    //to create a Custom Contex Menu, you need set the xml tag on the webpage and then also call addItem and defineCysto
+    var myItem = {
+        actionId: 'addCustomContextLink',
+        label: 'test1',
+        icon:'local:///img/snowflakes.png'},
+        contexts = [blackberry.ui.contextmenu.CONTEXT_IMAGE, blackberry.ui.contextmenu.CONTEXT_INPUT];
+        
+    blackberry.ui.contextmenu.addItem(contexts, myItem, function() { console.log('hi') });
+    
+    var options = {
+        includeContextItems: [blackberry.ui.contextmenu.CONTEXT_IMAGE,
+                              blackberry.ui.contextmenu.CONTEXT_IMAGE_LINK],
+        includePlatformItems: true,
+        includeMenuServiceItems: false,
+        //pinnedItemId: 2
+    };
+    
+    blackberry.ui.contextmenu.defineCustomContext("addCustomContextLink", options);
+    
+    alert("This button added the context menu link and nothing else. Verify that this is the case for the following images in Test #1");
 }
 
 function addInputContextToCustom() {
