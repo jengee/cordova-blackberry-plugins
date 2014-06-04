@@ -44,53 +44,74 @@
     <button onclick="document.location ='local:///manual//ContextMenu//index.htm';" />Back to Main Page</button><br /><br /><br />
         <div align="left">
             <h1>Manipulate customContext with defineCustomContext API</h1><br />
-
             
-            <div data-webworks-context="addCustomContextLink">
-            <h1>Test #1</h1><br />
-            Clicking on the button, invoke the context menus on each of the images below to see what is the default context menu. Clicking the button will add
+            <h1>The following 3 images have context menus that have not been altered. You can refer back to these to see the context menu differences before and after adding any custom context menus.</br>
+            </br>
+            Press and any of the image to invoke the context menu:</h1><br />
             <br />
-            <button onclick="addLinkContextToCustom()">add LINK</button><br /><br />
-                This is just an image with no links.</br>
+                This is just a local image</br>
                 <img border="0" src="local:///img/blackberry10.jpg" alt="Pulpit rock" width="304" height="228" /><br />
                 This is an image with a link directing to CNN.com where the image to be 250x150</br>
                 <a href="http://www.cnn.com"><img src="local:///img/barney.jpg" width="250" height="150"></a><br />
-                This is an image with a link directing to w3.org and where the image is left as it is.<br />
+                This is an image link directing to w3.org and where the image is left as it is.<br />
                 <a href="http://www.w3.org"><img src="http://www.w3.org/2008/site/images/logo-w3c-mobile-lg.png"></a><br />
             </div>
             <br />
             <br />
-            <div data-webworks-context="addCustomContextInput">
+            
+            <!-- The fact that I put the "div data-webworks-context" tag onto this section of the page resets that context menu to nothing.
+            To add items to the context menu, you need to add 
+            -->
+            <div data-webworks-context="Test1">
+            <h1>Test #1</h1><br />
+            Clicking on the button, will add
+            <br />
+            <button onclick="customContext1()">add LINK</button><br /><br />
+                This is just a local image</br>
+                <img border="0" src="local:///img/blackberry10.jpg" alt="Pulpit rock" width="304" height="228" /><br />
+                This is an image with a link directing to CNN.com where the image to be 250x150</br>
+                <a href="http://www.cnn.com"><img src="local:///img/barney.jpg" width="250" height="150"></a><br />
+                This is an image link directing to w3.org and where the image is left as it is.<br />
+                <a href="http://www.w3.org"><img src="http://www.w3.org/2008/site/images/logo-w3c-mobile-lg.png"></a><br />
+            </div>
+            
+            <br />
+            <br />
+            
+            <div data-webworks-context="Test2">
             <h1>Test #2</h1><br />
             Invoke the Context menu for the following links to verify what is in the context menu<br />
-            <button onclick="addInputContextToCustom()">add INPUT</button><br />
-                This is just an image with no links.</br>
+            <button onclick="customContext2()">add INPUT</button><br />
+                This is just a local image with no links.</br>
                 <img border="0" src="local:///img/blackberry10.jpg" alt="Pulpit rock" width="304" height="228" /><br />
                 This is an image with a link directing to CNN.com where the image to be 250x150</br>
                 <a href="http://www.cnn.com"><img src="local:///img/barney.jpg" width="250" height="150"></a><br />
                 This is an image with a link directing to w3.org and where the image is left as it is.<br />
                 <a href="http://www.w3.org"><img src="http://www.w3.org/2008/site/images/logo-w3c-mobile-lg.png"></a><br />
             </div>
+            
             <br />
             <br />
-            <div data-webworks-context="addCustomContextText">
+            
+            <div data-webworks-context="Test3">
             <h1>Test #3</h1><br />
-            Invoke the Context menu for the following links to verify what is in the context menu<br />
-            <button onclick="addTextContextToCustom()">add TEXT</button><br />
-                This is just an image with no links.</br>
+            Invoke the Context menu for the following links to verify that context menu<br />
+            <button onclick="customContext2()">add TEXT</button><br />
+                This is just a local image with no links.</br>
                 <img border="0" src="local:///img/blackberry10.jpg" alt="Pulpit rock" width="304" height="228" /><br />
                 This is an image with a link directing to CNN.com where the image to be 250x150</br>
                 <a href="http://www.cnn.com"><img src="local:///img/barney.jpg" width="250" height="150"></a><br />
                 This is an image with a link directing to w3.org and where the image is left as it is.<br />
                 <a href="http://www.w3.org"><img src="http://www.w3.org/2008/site/images/logo-w3c-mobile-lg.png"></a><br />
             </div>
+            
             <br />
             <br />
-            <div data-webworks-context="addCustomContextImage">    
+            <div data-webworks-context="Test4">
             <h1>Test #4</h1><br />
-            Invoke the Context menu for the following links to verify what is in the context menu<br />
-            <button onclick="addImageContextToCustom()">add IMAGE</button><br />
-                This is just an image with no links.</br>
+            Invoke the Context menu for the following images to verify what is in the context menu<br />
+            <button onclick="customContext2()">Add only menu service to images below</button><br />
+                This is just a local image with no links.</br>
                 <img border="0" src="local:///img/blackberry10.jpg" alt="Pulpit rock" width="304" height="228" /><br />
                 This is an image with a link directing to CNN.com where the image to be 250x150</br>
                 <a href="http://www.cnn.com"><img src="local:///img/barney.jpg" width="250" height="150"></a><br />
@@ -99,11 +120,11 @@
             </div>
             <br />
             <br />
-            <div data-webworks-context="addCustomContextImageLink">
+            <div data-webworks-context="Test5">
             <h1>Test #5</h1><br />
-            Invoke the Context menu for the following links to verify what is in the context menu<br />
-            <button onclick="addImageLinkContextToCustom()">add IMAGE_LINK</button><br />
-                This is just an image with no links.</br>
+            Invoke the Context menu for the following images to verify what is in the context menu<br />
+            <button onclick="customContext2()">add IMAGE_LINK</button><br />
+                This is just a local image with no links.</br>
                 <img border="0" src="local:///img/blackberry10.jpg" alt="Pulpit rock" width="304" height="228" /><br />
                 This is an image with a link directing to CNN.com where the image to be 250x150</br>
                 <a href="http://www.cnn.com"><img src="local:///img/barney.jpg" width="250" height="150"></a><br />
@@ -112,24 +133,29 @@
             </div>
             <br />
             <br />
-            <div data-webworks-context="addCustomContextInvoke">
+            <div data-webworks-context="Test6">
             <h1>Test #6</h1><br />
             Invoke the Context menu for the following links to verify what is in the context menu<br />
-            <button onclick="addMenuServiceToCustom()">add Menu Service Items</button><br />
-                This is just an image with no links.</br>
+            <button onclick="customContext2()">add Menu Service Items</button><br />
+                This is just a local image with no links.</br>
                 <img border="0" src="local:///img/blackberry10.jpg" alt="Pulpit rock" width="304" height="228" /><br />
                 This is an image with a link directing to CNN.com where the image to be 250x150</br>
                 <a href="http://www.cnn.com"><img src="local:///img/barney.jpg" width="250" height="150"></a><br />
                 This is an image with a link directing to w3.org and where the image is left as it is.<br />
                 <a href="http://www.w3.org"><img src="http://www.w3.org/2008/site/images/logo-w3c-mobile-lg.png"></a><br />
+                
+                <div data-webworks-context="Test6a">
+                <h2>Test #6a</h2>
+                This image is has it's own &lt;div&gt; tag that is embedded within Test #6 &lt;div&gt;
+                </div>
             </div>
             <br />
             <br />
-            <div data-webworks-context="addCustomContextPlatform">
+            <div data-webworks-context="Test7">
             <h1>Test #7</h1><br />
             Invoke the Context menu for the following links to verify what is in the context menu<br />
-            <button onclick="addPlatformToCustom()">Add Platform Items</button><br />
-                This is just an image with no links.</br>
+            <button onclick="customContext2()">Add Platform Items</button><br />
+                This is just a local image with no links.</br>
                 <img border="0" src="local:///img/blackberry10.jpg" alt="Pulpit rock" width="304" height="228" /><br />
                 This is an image with a link directing to CNN.com where the image to be 250x150</br>
                 <a href="http://www.cnn.com"><img src="local:///img/barney.jpg" width="250" height="150"></a><br />
@@ -138,11 +164,11 @@
             </div>
             <br />
             <br />
-            <div data-webworks-context="addCustomContextPlatformAndALLMenu">
+            <div data-webworks-context="Test8">
             <h1>Test #8</h1><br />
             Invoke the Context menu for the following links to verify what is in the context menu<br />
-            <button onclick="addAllContextAndMenuServiceAndPlatformToCustom()">Add Menu Service, Platform and ALL</button><br />
-                This is just an image with no links.</br>
+            <button onclick="customContext2()">Add Menu Service, Platform and ALL</button><br />
+                This is just a local image with no links.</br>
                 <img border="0" src="local:///img/blackberry10.jpg" alt="Pulpit rock" width="304" height="228" /><br />
                 This is an image with a link directing to CNN.com where the image to be 250x150</br>
                 <a href="http://www.cnn.com"><img src="local:///img/barney.jpg" width="250" height="150"></a><br />
@@ -155,7 +181,7 @@
             <h1>Test #9</h1><br />
             This context menu has an added custom menu from test #1. Clicking the button will remove this added custom context.
             <button onclick="removeAdditionalContextsFromCustom()">Remove additional contexts</button><br />
-                This is just an image with no links.</br>
+                This is just a local image with no links.</br>
                 <img border="0" src="local:///img/blackberry10.jpg" alt="Pulpit rock" width="304" height="228" /><br />
                 This is an image with a link directing to CNN.com where the image to be 250x150</br>
                 <a href="http://www.cnn.com"><img src="local:///img/barney.jpg" width="250" height="150"></a><br />
@@ -165,6 +191,28 @@
             <br />
             <br />
             <br />
+            <div data-webworks-context="addCustomContextLink">
+            <h1>Test #10</h1><br />
+            This context menu has an added custom menu from test #1. Clicking the button will remove this added custom context.
+            <button onclick="removeAdditionalContextsFromCustom()">Remove additional contexts</button><br />
+                This is just a local image with no links.</br>
+                <img border="0" src="local:///img/blackberry10.jpg" alt="Pulpit rock" width="304" height="228" /><br />
+                This is an image with a link directing to CNN.com where the image to be 250x150</br>
+                <a href="http://www.cnn.com"><img src="local:///img/barney.jpg" width="250" height="150"></a><br />
+                This is an image with a link directing to w3.org and where the image is left as it is.<br />
+                <a href="http://www.w3.org"><img src="http://www.w3.org/2008/site/images/logo-w3c-mobile-lg.png"></a><br />
+            </div>
+            <br />
+            <br />
+            <br />
+            <h1>Test #11</h1><br />
+            <button onclick="toggle()">Turn on/off context menu for the following images</button><br />
+                This is just a local image with no links.</br>
+                <img border="0" src="local:///img/blackberry10.jpg" alt="Pulpit rock" width="304" height="228" /><br />
+                This is an image with a link directing to CNN.com where the image to be 250x150</br>
+                <a href="http://www.cnn.com"><img src="local:///img/barney.jpg" width="250" height="150"></a><br />
+                This is an image with a link directing to w3.org and where the image is left as it is.<br />
+                <a href="http://www.w3.org"><img src="http://www.w3.org/2008/site/images/logo-w3c-mobile-lg.png"></a><br />
             <br />
             <br />
             <br />
