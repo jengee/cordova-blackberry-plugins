@@ -1,0 +1,163 @@
+﻿<!DOCTYPE html>
+<!--
+* Licensed under the Apache License, Version 2.0 (the "License");
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+*
+*     http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+-->
+<html>
+    <head>
+        <title>Globaliztion API tests</title>
+        <script src="local:///cordova.js" type="text/javascript"></script>
+        <script src="script.js" type="text/javascript"></script>
+        <style type="text/css">
+            p {font-size:small}
+            Button {
+                width: 100%;
+                height: 100px;
+                font-size: 200%;
+            }
+            body{
+                font-size: large;
+                background-color:#5795f2
+            }
+        </style>
+    </head>
+    <body>
+        <div align="left">
+            <br />
+            <button onclick="document.location ='local:///manual//index.htm';">Back to Main Page</button>
+            <br />
+            <br />
+            <br />
+            <h2>Test1</h2>
+            <button onclick="test1()">Preferred Language</button>
+            <br>
+            <br>
+            <h2>Test2</h2>
+            <button onclick="test2()">Local Name</button>
+            <br />
+            <br />
+            <br />
+            <h2>Test3 - Date to String</h2>
+            <button onclick="test3a()">Date of 01/01/01 in full</button><br />
+            <br />
+            <button onclick="test3b()">Date of 02/29/14 in medium</button><br />
+            <br />
+            <button onclick="test3c()">Today's Date in long format</button><br />
+            <br />
+            <button onclick="test3d()">Today's Date in short format</button><br />
+            <br />
+            <br />
+            <h2>Test 4 - String to Date</h2>
+            <button onclick="test4a()">String to Date of Mar 29,1998 with default options</button><br />
+            <br />
+            <button onclick="test4b">String to Date of Mar 29, 1998 in long format and selector of 'Date'</button><br />
+            <br />
+            <button onclick="test4c">String to Date of Mar 29, 1998 in full format and selector of 'Time'</button><br />
+            <br />
+            <br />
+            <h2>Test 5 - get Date Pattern</h2>
+            <button onclick="test5()">Date pattern of Mar 29,1998</button><br />
+            <br />
+            <br />
+            <h2>Test 6 - get Date Names</h2>
+            <button onclick="test6a()">String to Date of Mar 29,1998 with default options</button><br />
+            <br />
+            <button onclick="test6b">String to Date of Mar 29, 1998 in long format and selector of 'Date'</button><br />
+            <br />
+            <button onclick="test6c">String to Date of Mar 29, 1998 in full format and selector of 'Time'</button><br />
+            <br />
+            <button onclick="test6d">String to Date of Mar 29, 1998 in full format and selector of 'Time'</button><br />
+            <br />
+            <br />
+            <h2>Test 7 - isDaylightSavings Time</h2><br />
+            <br/>
+            Test7a.<br/>
+            <button onclick="test7a()">Check if today is daylight saving time</button><br />
+            <br />
+            Test7b.<br/>
+            <button onclick="test7b()">Check if Nov 30, 2009 is in daylight saving time</button><br />
+            <br />
+            <br />
+            <h2>Test 8 - get First Day of Week</h2><br />
+            In NA, the first day of the week is Sunday.<br />
+            In many countries in Europe, the first day of the week is Monday.<br />
+            Test with the country as Saudi Arabia. First day of the week is Saturday<br />
+            <button onclick="test8a()">Check if today is daylight saving time</button><br />
+            <br />
+            <br />
+            <h2>Test 9 - numberToString</h2><br />
+            <button onclick="test9a()">base Case with the value of 1</button><br />
+            <br />
+            <button onclick="test9b()">value of 3 using the option of decimal</button><br />
+            <br />
+            Test9c. The following testcase should be tested with the following countries:<br />
+            <ul>
+                <li>Saudi Arabia</li>
+                <li>China</li>
+                <li>France</li>
+            </ul>
+            <button onclick="test9c()">value of 4 using the option of currency</button><br />
+            <br />
+            Test9d.<br />
+            <button onclick="test9d()">value of 5 using the option of percent</button><br />
+            <br />
+            <br />
+            <h2>Test 10 - String To Number</h2><br/>
+            <button onclick="test10a()">Value os 123.456 in decimal</button><br />
+            <br />
+            <button onclick="test10b()">Value of 123.456 in percent</button><br />
+            <br />
+            <button onclick="test10c()">Value of 123.456 in currency</button><br />
+            <br />
+            <br />
+            <h2>Test 11 - getNumberPattern</h2><br/>
+            Test11. The following testcases (11a-11c) should be tested with the following countries:<br />
+            <ul>
+                <li>Saudi Arabia</li>
+                <li>Italy</li>
+                <li>Malaysia</li>
+             <button onclick="test11a()">getNumberPattern for decimal</button><br />
+            <br />
+            <button onclick="test11b()">getNumberPattern for percent</button><br />
+            <br />
+            <button onclick="test11c()">getNumberPattern for currency</button><br />
+            <br />
+            <br />
+            <h2>Test 12 - getCurrencyPattern</h2><br/>
+            <button onclick="test12a()">getCurrencyPattern for USD</button><br />
+            <br />
+            <button onclick="test12b()">getCurrencyPattern for JPY (Yen)</button><br />
+            <br />
+            <button onclick="test12c()">getCurrencyPattern for CNY (RMB)</button><br />
+            <br />
+            <button onclick="test12d()">getCurrencyPattern for GBP (British Pound)</button><br />
+            <br />
+            <button onclick="test12e()">getCurrencyPattern for INR (Indian Rupee)</button><br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <button onclick="document.location ='local:///manual//index.htm';">Back to Main Page</button><br />
+        </div>
+    <br />
+    <br />
+    <br />
+    </body>
+</html>
