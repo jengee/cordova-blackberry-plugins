@@ -14,6 +14,7 @@
  * limitations under the License.
 */
 
+
 var callback = function (id) {
     alert("Callback triggered with id: " + id);
 };
@@ -200,88 +201,11 @@ function orangeIconAlertFunction(sourceId) {
     alert("A function executed when you clicked on the orange context menu. And the sourceId is: " + sourceId);
 }
 
-//This testcase covers the scenario where you add
-/*function customContext1() {
-
-    alert("Adding a Custom Context Menu called Orange with a Orange Icon that will invoke an alert");
-    var options = {
-        includeContextItems: [blackberry.ui.contextmenu.CONTEXT_LINK,
-                              blackberry.ui.contextmenu.CONTEXT_IMAGE,
-                              blackberry.ui.contextmenu.CONTEXT_IMAGE_LINK],
-        includePlatformItems: false,
-        includeMenuServiceItems: false
-    },
-    customizedList = [blackberry.ui.contextmenu.CONTEXT_LINK,
-                      blackberry.ui.contextmenu.CONTEXT_IMAGE]
-    myNewMenu;
-
-    //First argument passed into defineCustomContext is the name that is used for the <div data-webworks-context> tag
-    blackberry.ui.contextmenu.defineCustomContext("Test1", options);
-    
-    //The new menu will have a orange icon, with a ID of 919 and a name of "newMenu"
-    var myNewMenu = {actionId: "919", label: "newMenu", icon:'local:///icon.png'}
-    
-    blackberry.ui.contextmenu.addItem("Test1", myNewMenu, somefunction);
-
-    alert("This button added the context menu link and nothing else. Verify that this is the case for the following images in Test #1");
-}
-*/
-
-
-
-
-/*
-function addLinkContextToCustom() {
-    alert("Adding a Custom Context Menu called Orange with a Orange Icon that will invoke an alert");
-
-    var options = {
-        includeContextItems: 
-            [blackberry.ui.contextmenu.INSPECT_ELEMENT],
-        includePlatformItems: true,
-        includeMenuServiceItems: false
-    },
-    item,
-    contexts = [blackberry.ui.contextmenu.INSPECT_ELEMENT];
-    
-    // Create a menu item and add it to the context
-    item = {actionId: '1', label: 'Test1', 
-        icon:'local:///../Toast/icon.png'};
-    blackberry.ui.contextmenu.addItem(contexts, item, deleteItem);
-    
-    // And another
-    item = {actionId: '2', label: 'Test1', 
-        icon:'local:///../Toast/icon.png'};
-    blackberry.ui.contextmenu.addItem(contexts, item, greyOutItem);
-    
-    //Perform an action on custom context, with a custom item
-    function deleteItem(sourceId) {
-        console.log("deleteItem: sourceId= " +sourceId);
-    }
-
-    function greyOutItem(sourceId) {
-        console.log("greyOutItem: sourceId = " + sourceId); 
-    }
-
-    var defineOptions = {
-            includeContextItems: 
-                [blackberry.ui.contextmenu.CONTEXT_ALL],
-            includePlatformItems: false,
-            includeMenuServiceItems: true
-        },
-        item,
-        contexts = [blackberry.ui.contextmenu.CONTEXT_ALL];
-
-    // Define the custom context with the options that we want used
-    blackberry.ui.contextmenu.defineCustomContext("Test1", 
-        defineOptions);
-    
-}*/
-
 function customContext1() {
-    alert("Adding a menu called Orange with a Orange Icon with a callback function that just invokes an alert. Check each image below to verify that the context menu has updated.");
+    alert("Adding a menu called Orange with a Orange Icon with a callback function that just invokes an alert.");
     
     // Create a menu item and add it to the context
-    var item = {actionId: '1',
+    var item = {actionId: 'Test1',
         label: 'Orange', 
         icon:'local:///manual/ContextMenu/icon.png'},
         
@@ -291,10 +215,10 @@ function customContext1() {
 }
 
 function customContext2() {
-    alert("Adding a menu called 'A tire' with a tire icon with a callbackfunction that just invokes an alert. Check each image below to verify that the context menu has updated.");
+    alert("Adding a menu called 'A tire' with a tire icon with a callback function that just invokes an alert.");
     
     // Create a menu item and add it to the context
-    var item = {actionId: '2',
+    var item = {actionId: 'Test2',
         label: 'A tire', 
         icon:'local:///manual/ContextMenu/tire.png'},
         
@@ -306,7 +230,7 @@ function customContext2() {
 
 function customContext3() {
     //Because each section in the HTML page has it's own div section, you have to add the menu each and every time. 
-   alert ("Adding a menu called 'A tire' and 'Orange'. Check each image below to verify that the context menu has updated.");
+   alert ("Adding a menu called 'A tire' and 'Orange'.");
    
     // Create a menu item and add it to the context
     var item = {actionId: '1',
@@ -318,11 +242,11 @@ function customContext3() {
     blackberry.ui.contextmenu.addItem(contexts, item, orangeIconAlertFunction);
 
     // Create a menu item and add it to the context
-    var item = {actionId: '2',
+    item = {actionId: '2',
         label: 'A tire', 
-        icon:'local:///manual/ContextMenu/tire.png'},
+        icon:'local:///manual/ContextMenu/tire.png'};
         
-        contexts = ["Test3"]; //Name of the section in the HTML page that the custom context menu applies
+    contexts = ["Test3"]; //Name of the section in the HTML page that the custom context menu applies
          
     blackberry.ui.contextmenu.addItem(contexts, item, someFunction);
 }
@@ -461,10 +385,10 @@ function customContext10() {
     
     resp = blackberry.ui.contextmenu.enablePlatformItem(context, actionId);
     
-    if (resp == true) {
+    if (resp === true) {
         alert("enabled " + context + " successfully!");
         
-    } else if (resp == undefined) {
+    } else if (resp === undefined) {
         alert("enablePlatformItems returned undefined");
     } else {
         // assuming false
@@ -481,10 +405,9 @@ function customContext10a() {
     resp = blackberry.ui.contextmenu.disablePlatformItem(context, 
             actionId);
     
-    if (resp == true) {
+    if (resp === true) {
         alert("disabled " + context + " successfully!");
-        
-    } else if (resp == undefined) {
+    } else if (resp === undefined) {
         alert("disablePlatformItems returned undefined");
     } else {
         // assuming false
@@ -509,9 +432,11 @@ function customContext10b() {
 //This function toggles on/off context menus
 function toggle() {
     
-    if (blackberry.ui.contextmenu.enabled == false) {
+    if (blackberry.ui.contextmenu.enabled === false) {
+        alert("turning on context menus");
         blackberry.ui.contextmenu.enabled = true;
     } else {
+        alert("turning off context menus");
         blackberry.ui.contextmenu.enabled = false;
     }
     
